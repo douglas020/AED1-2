@@ -1,53 +1,28 @@
-int* plusOne(int* digits, int digitsSize, int* returnSize) {
-    int soma=0;
-    if (digits == NULL){
-        return NULL;
-    }
+#include <stdio.h>
 
-    if (digits[digitsSize - 1] == 9){
-          int i = digitsSize - 1;
+int main (){
+int digitis [] = {4,3,2,1};
+int n=1,a=0;
+int v[4];
+int index=3;
+for (int i=4-1;i>=0;i--){
     
-    while (i >= 0 && digits[i] == 9) {
-        digits[i] = 0;
-        i--;
-    }
-    
-    if (i >= 0) {
-        digits[i]++;
-        *returnSize = digitsSize;
-        
-        int* result = (int*)malloc(digitsSize * sizeof(int));
-        for (int j = 0; j < digitsSize; j++) {
-            result[j] = digits[j];
-        }
-        return result;
-    }
-    
-    *returnSize = digitsSize + 1;
-    int* result = (int*)malloc((digitsSize + 1) * sizeof(int));
-    
-    result[0] = 1;
-    for (int j = 1; j <= digitsSize; j++) {
-        result[j] = 0;
-    }
-    
-    return result;
+    a += digitis[i] * n;
+    n = n *  10;
+}
+a +=1;
 
-    }else{
-        *returnSize = digitsSize;
-        int *p = malloc (digitsSize * sizeof(int));
+while (a > 0){
+    int algarismo = a % 10;
 
-        for (int i=0;i<digitsSize;i++){
-            
-            p[i] = digits[i];
-
-        }
-
-        p[digitsSize-1] += 1;
-
-        return p;
-    }
+    v [index] = algarismo;
+    --index;
+    a /= 10;
+}
  
+for (int i=0;i<4;i++){
+printf ("%d \n",v[i]);
+}
 
 
 }
